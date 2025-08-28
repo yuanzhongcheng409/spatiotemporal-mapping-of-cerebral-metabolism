@@ -1,0 +1,84 @@
+# 加载必要的包
+library(readr)
+library(dplyr)
+library(splines)  # 用于 B-spline 平滑
+library(ggplot2)
+library(Mfuzz)
+library(readxl)
+
+# 设置随机数种子以保证结果可重复
+set.seed(123)
+
+# 读取数据
+gene_data <- read_csv("E:/LCMS5rats/无名字combination - 去1.csv", col_names = TRUE)
+
+# 读取包含基因名称的Excel文件
+gene_names <- read_excel("E:/LCMS5rats/gene_names.xlsx")
+
+# 检查数据格式
+head(gene_data)
+head(gene_names)
+
+# 确保基因名称文件只有一列数据
+# 如果有表头，假设表头为 "GeneName"
+gene_names <- gene_names$GeneName
+
+# 将基因名称添加到基因数据中，作为新的一列
+gene_data$GeneName <- gene_names
+
+# 合并重复的基因名称，并对它们的值求和
+gene_data_summarized <- gene_data %>%
+  group_by(GeneName) %>%
+  summarise(across(everything(), sum, na.rm = TRUE))
+
+# 检查合并后的结果
+head(gene_data_summarized)
+
+# 将合并后的基因数据保存为 CSV 文件
+write.csv(gene_data_summarized, "E:/LCMS5rats/merged_gene_data.csv", row.names = FALSE)
+
+
+# 以下代码保持不变，继续进行聚类分析和其他处理
+# 确保 gene_data_matrix 是合并后的数据
+gene_data_matrix <- as.matrix(gene_data_summarized)
+
+# 将矩阵转换为 ExpressionSet 对象
+eset <- new("ExpressionSet", exprs = gene_data_matrix)
+
+# 填补缺失值（虽然这里没有缺失值，但为了完整性保留这一步）
+eset <- filter.NA(eset, thres = 0.25)
+eset <- fill.NA(eset, mode = "mean")
+
+# 标准化数据
+eset <- standardise(eset)
+
+# 设置随机数种子以保证结果可重复
+set.seed(123)
+
+# 聚类分析，将基因聚为9类
+m <- mestimate(eset)  # 计算模糊参数m
+cl <- mfuzz(eset, c = 9, m = m)
+
+# 获取每个基因的聚类结果
+cluster_results <- cl$cluster
+
+# 初始化一个列表来存储每个聚类中的基因名称
+cluster_gene_names <- list()
+
+# 遍历每个聚类，提取基因名称
+for (i in 1:9) {
+  genes_in_cluster <- which(cluster_results == i)
+  cluster_gene_names[[i]] <- rownames(exprs(eset))[genes_in_cluster]
+}
+
+# 打印每个聚类中的基因名称
+for (i in 1:length(cluster_gene_names)) {
+  cat("Cluster", i, ":\n")
+  print(cluster_gene_names[[i]])
+}
+
+# 将每个聚类中的基因名称保存为CSV文件
+for (i in 1:length(cluster_gene_names)) {
+  write.csv(data.frame(GeneName = cluster_gene_names[[i]], stringsAsFactors = FALSE),
+            file = paste0("cluster_", i, "_gene_names.csv"), row.names = FALSE)
+}

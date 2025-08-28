@@ -1,0 +1,29 @@
+# 加载openxlsx包
+library(openxlsx)
+
+# 读取CSV文件
+data <- read.xlsx("E:/LCMS5rats/PLSR/去除含0特征.xlsx")  # 假设文件名为your_file.csv，且没有表头
+
+
+# 定义一个函数来进行每组数据的标准化
+standardize_group <- function(group_data) {
+    sum_val <- sum(group_data)
+    return(20*group_data / sum_val)
+  }
+
+# 对每一行的5组20个数据进行内部标准化
+standardized_data <- apply(data, 1, function(row) {
+  # 将每行数据分成5组，每组20个数据
+  groups <- split(row, rep(1:5, each = 20))
+  # 对每组数据进行标准化
+  standardized_groups <- lapply(groups, standardize_group)
+  # 将标准化后的数据合并回一行
+  return(unlist(standardized_groups))
+})
+
+# 将结果转换为数据框
+standardized_data <- as.data.frame(t(standardized_data))
+
+# 将结果写入新的Excel文件
+write.xlsx(standardized_data, "standardized_output.xlsx", row.names = FALSE)
+

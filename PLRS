@@ -1,0 +1,110 @@
+# 加载包
+library(pls)
+library(readxl)
+library(dplyr)
+library(ggplot2)
+library(caret)
+
+# 读取数据文件
+data <- read_excel("E:/LCMS5rats/PLSR新/standardized_output.xlsx", sheet = 1)
+var_names <- read_excel("E:/LCMS5rats/PLSR新/去除含0特征 - 副本.xlsx", sheet = 1)
+
+# 提取自变量（前6行）
+X <- data[1:6, ]
+
+
+# 提取因变量（从第7行开始）
+Y <- data[7:nrow(data), ]
+
+# 转置X和Y，因为PLSR函数需要列向量
+X <- t(X)
+Y <- t(Y)
+
+# 建立PLSR模型，提取主成分数量可以根据交叉验证结果调整
+pls_model <- plsr(X ~ Y, data = data.frame(X, Y), ncomp = 6, scale = TRUE, validation = "CV")
+plot(pls_model, plottype = "scores", comps = 1:6)
+# 提取得分
+scores <- scores(pls_model)
+
+# 提取主成分1、2、3、4的得分
+comp1 <- scores[, "Comp 1"]
+comp2 <- scores[, "Comp 2"]
+comp3 <- scores[, "Comp 3"]
+comp4 <- scores[, "Comp 4"]
+
+# 创建数据框用于保存主成分1、2、3、4的得分
+comp1234_df <- data.frame(
+  Sample = rownames(scores),
+  Component1 = comp1,
+  Component2 = comp2,
+  Component3 = comp3,
+  Component4 = comp4
+)
+
+# 保存主成分1、2、3、4的得分为CSV文件
+write.csv(comp1234_df, "E:/LCMS5rats/PLSR新/PLSR_Scores_Comp1234.csv", row.names = FALSE)
+
+# 提取每个主成分对应的自变量组合和权重
+loadings <- loading.weights(pls_model)
+
+# 计算每个主成分的自变量贡献率（权重的平方）
+loadings_squared <- loadings^2
+
+# 手动计算VIP值
+# 提取PLSR模型的得分矩阵和载荷矩阵
+T <- scores(pls_model)
+P <- loading.weights(pls_model)
+
+# 计算每个主成分的方差
+variances <- colSums(T^2)
+
+# 计算VIP值
+VIP <- matrix(0, nrow = nrow(P), ncol = ncol(P))
+for (a in 1:ncol(P)) {
+  for (j in 1:nrow(P)) {
+    VIP[j, a] <- (P[j, a] * variances[a]) / sum(P[, a]^2)
+  }
+}
+VIP <- sqrt(rowSums(VIP^2) / sum(variances))
+
+# 确保VIP是一个向量
+VIP <- as.vector(VIP)
+
+# 创建VIP值数据框
+VIP_df <- data.frame(
+  Variable = rownames(P),  # 使用载荷矩阵的行名作为变量名
+  VIP_Value = VIP
+)
+
+# 提取每个主成分中贡献率最高的前5个自变量及其VIP值
+top5_contributions <- lapply(1:4, function(comp) {
+  # 提取当前主成分的权重平方
+  component_loadings <- loadings_squared[, paste("Comp", comp, sep = " ")]
+  # 按贡献率降序排列并取前5个
+  top5 <- head(order(component_loadings, decreasing = TRUE), 5)
+  # 提取变量名称、贡献率和VIP值
+  var_names <- rownames(loadings_squared)[top5]
+  contributions <- component_loadings[top5]
+  vip_values <- VIP_df$VIP_Value[match(var_names, VIP_df$Variable)]
+  # 创建数据框
+  data.frame(
+    Component = paste("Comp", comp, sep = ""),
+    Variable = var_names,
+    Contribution = contributions,
+    VIP_Value = vip_values
+  )
+})
+
+# 将所有主成分的前5个自变量合并为一个数据框
+top5_contributions_df <- do.call(rbind, top5_contributions)
+
+# 保存VIP值为CSV文件
+write.csv(VIP_df, "E:/LCMS5rats/PLSR新/PLSR_VIP_Values.csv", row.names = FALSE)
+
+# 保存每个主成分的前5个自变量及其贡献率和VIP值为CSV文件
+write.csv(top5_contributions_df, "E:/LCMS5rats/PLSR新/PLSR_Top5_Contributions_with_VIP.csv", row.names = FALSE)
+
+# 提示用户文件已保存
+cat("主成分1、2、3、4的得分数据已保存到文件：E:/LCMS5rats/PLSR新/PLSR_Scores_Comp1234.csv\n")
+cat("每个主成分的前5个自变量及其贡献率和VIP值已保存到文件：E:/LCMS5rats/PLSR新/PLSR_Top5_Contributions_with_VIP.csv\n")
+cat("VIP值已保存到文件：E:/LCMS5rats/PLSR新/PLSR_VIP_Values.csv\n")

@@ -1,0 +1,31 @@
+## 0. 包 -------------------------------------------------
+# install.packages(c("readxl", "MultiClassROC"))   # 第一次用请取消注释
+library(readxl)
+library(MultiClassROC)
+
+## 1. 读入 ------------------------------------------------
+df <- read_excel("E:/LCMS5rats/PLSR新/Com1ROCLASSO.xlsx")
+
+## 2. 强制列名简洁（防公式错误） --------------------------
+colnames(df) <- c("Stage", paste0("X", 1:5))  # 修改为5个变量
+
+## 3. 检查Stage列的类别数量 -------------------------------
+unique_stages <- unique(df$Stage)
+cat("Unique Stages:", unique_stages, "\n")
+if (length(unique_stages) != 2) {
+  stop("Stage列的类别数量不是2，请检查数据！")
+}
+
+## 4. OvA ROC （2 条曲线） -------------------------------
+roc_ova <- multiroc(
+  y    = "Stage",
+  x    = paste0("X", 1:5),  # 修改为5个变量
+  k    = 2,                # 修改为2个类别
+  type = "OvA",
+  plot = TRUE,
+  data = df
+)
+
+## 5. AUC 打印 -----------------------------------------
+cat("\nOvA AUC:\n")
+print(roc_ova)

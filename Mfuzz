@@ -1,0 +1,56 @@
+# 0. 安装/加载所需包 -------------------------------------------------------------
+packages <- c("readxl", "dplyr", "tidyr", "openxlsx")
+invisible(lapply(packages, function(pkg) {
+  if (!requireNamespace(pkg, quietly = TRUE)) install.packages(pkg)
+  library(pkg, character.only = TRUE)
+}))
+
+# 1. 读入 Excel 文件 -------------------------------------------------------------
+df_raw <- read_excel("E:/LCMS5rats/Mfuzz_new/13种.xlsx", sheet = 1)
+
+# 2. 整理数据 --------------------------------------------------------------------
+met_names  <- df_raw[[1]]                 # 第一列：代谢物名称
+type_names <- names(df_raw)[-1]           # 其余列名：代谢物类型
+weight_mat <- as.matrix(df_raw[,-1])
+rownames(weight_mat) <- met_names
+
+# 3. 任务1：每个代谢物的最高权重及对应类型 -----------------------------------------
+max_idx <- max.col(weight_mat, ties.method = "first")
+max_weight_df <- tibble(
+  Metabolite = met_names,
+  MaxWeight  = weight_mat[cbind(seq_along(met_names), max_idx)],
+  Type       = type_names[max_idx]
+)
+
+write.xlsx(max_weight_df,
+           file = "EachMetabolite_MaxWeight.xlsx",
+           sheetName = "MaxWeight",
+           rowNames = FALSE,
+           overwrite = TRUE)
+
+# 4. 任务2：按最高权重所属类型拆分 Excel -----------------------------------------
+for (tp in unique(max_weight_df$Type)) {
+  metab_list <- max_weight_df %>% 
+    filter(Type == tp) %>% 
+    pull(Metabolite)
+  
+  file_name <- paste0("Type_", make.names(tp), ".xlsx")
+  write.xlsx(data.frame(Metabolite = metab_list),
+             file = file_name,
+             sheetName = "Metabolites",
+             rowNames = FALSE,
+             overwrite = TRUE)
+}
+
+# 5. 新增：导出每个类型的代谢物数目 ----------------------------------------------
+type_count_df <- max_weight_df %>% 
+  count(Type, name = "Count") %>%        # 统计每个类型的个数
+  arrange(desc(Count))                   # 可选：按数目降序排列
+
+write.xlsx(type_count_df,
+           file = "Type_Count.xlsx",
+           sheetName = "Count",
+           rowNames = FALSE,
+           overwrite = TRUE)
+
+message("全部任务完成！已生成 EachMetabolite_MaxWeight.xlsx、Type_Count.xlsx 及各类型 Excel。")

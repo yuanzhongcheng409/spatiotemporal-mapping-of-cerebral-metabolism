@@ -1,0 +1,67 @@
+## 0) 装包（仅第一次）
+libs <- c("glmnet", "readxl", "writexl", "pROC", "ggplot2")
+for (pkg in libs) {
+  if (!requireNamespace(pkg, quietly = TRUE)) {
+    install.packages(pkg)
+  }
+}
+lapply(libs, library, character.only = TRUE)
+
+## 1) 读取 Excel 数据
+file_path <- "E:/LCMS5rats/PLSR新/Com1ROC.xlsx"
+dat <- read_excel(file_path)
+
+## 2) 预处理
+Y <- as.numeric(dat$Group) - 1  # 将因子转换为数值（0和1）
+X <- as.matrix(dat[, -1])       # 10个代谢特征
+X <- na.omit(X)                 # 去掉 NA 行
+X <- scale(X)                   # 标准化特征（均值为0，标准差为1）
+
+## 3) LASSO 回归
+set.seed(123)
+cvfit <- cv.glmnet(X, Y, family = "binomial", alpha = 1, nfolds = 5)  # 二分类问题
+
+# 使用更严格的 lambda.1se
+best_lambda <- cvfit$lambda.1se
+lasso_coef <- coef(cvfit, s = best_lambda)  # 获取最佳lambda下的系数
+
+## 4) 筛选变量
+selected_vars <- which(lasso_coef != 0)  # 选择非零系数的变量
+selected_vars <- selected_vars[-1]       # 去掉截距项
+cat("LASSO回归后保留变量数:", length(selected_vars), "\n")
+cat("保留的变量索引:", selected_vars, "\n")
+
+# 如果变量数仍然大于5，手动调整 lambda
+if (length(selected_vars) > 5) {
+  best_lambda <- cvfit$lambda.min * 1.5  # 增加 lambda 的值
+  lasso_coef <- coef(cvfit, s = best_lambda)  # 获取新的系数
+  selected_vars <- which(lasso_coef != 0)  # 选择非零系数的变量
+  selected_vars <- selected_vars[-1]       # 去掉截距项
+  cat("手动调整 lambda 后保留变量数:", length(selected_vars), "\n")
+  cat("保留的变量索引:", selected_vars, "\n")
+}
+
+## 5) 导出被选变量的原始数据
+var_names <- colnames(X)[selected_vars]
+selected_data <- dat[, c("Group", var_names)]
+write_xlsx(selected_data, "Selected_Variables_Data.xlsx")
+cat("\n被选变量的原始数据已导出到 Selected_Variables_Data.xlsx\n")
+
+## 6) 绘制ROC曲线
+Y_pred <- predict(cvfit, s = best_lambda, newx = X, type = "response")
+roc_obj <- roc(Y, Y_pred)
+roc_df <- data.frame(FPR = 1 - roc_obj$specificities, TPR = roc_obj$sensitivities)
+
+p <- ggplot(roc_df, aes(FPR, TPR)) +
+  geom_step(size = 1.2) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "gray") +
+  labs(title = "LASSO回归ROC曲线",
+       x = "False Positive Rate", y = "True Positive Rate") +
+  coord_fixed() +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+
+print(p)
+ggsave("LASSO_ROC_curve.pdf", plot = p, width = 7, height = 5)
+
+message("\n脚本全部完成！ROC 曲线已保存为 LASSO_ROC_curve.pdf")

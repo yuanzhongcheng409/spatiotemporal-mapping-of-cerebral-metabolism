@@ -1,1 +1,846 @@
-requirements
+| Package | Version |
+|---------|---------|
+| abind | 1.4-8 |
+| Package | Version |
+|---------|---------|
+| askpass | 1.2.1 |
+| Package | Version |
+|---------|---------|
+| backports | 1.5.0 |
+| Package | Version |
+|---------|---------|
+| base | 4.5.0 |
+| Package | Version |
+|---------|---------|
+| base64enc | 0.1-3 |
+| Package | Version |
+|---------|---------|
+| BH | 1.87.0-1 |
+| Package | Version |
+|---------|---------|
+| Biobase | 2.68.0 |
+| Package | Version |
+|---------|---------|
+| BiocGenerics | 0.54.0 |
+| Package | Version |
+|---------|---------|
+| BiocManager | 1.30.26 |
+| Package | Version |
+|---------|---------|
+| BiocParallel | 1.42.1 |
+| Package | Version |
+|---------|---------|
+| BiocVersion | 3.21.1 |
+| Package | Version |
+|---------|---------|
+| bit | 4.6.0 |
+| Package | Version |
+|---------|---------|
+| bit64 | 4.6.0-1 |
+| Package | Version |
+|---------|---------|
+| bitops | 1.0-9 |
+| Package | Version |
+|---------|---------|
+| blob | 1.2.4 |
+| Package | Version |
+|---------|---------|
+| boot | 1.3-31 |
+| Package | Version |
+|---------|---------|
+| Boruta | 9.0.0 |
+| Package | Version |
+|---------|---------|
+| broom | 1.0.9 |
+| Package | Version |
+|---------|---------|
+| bslib | 0.9.0 |
+| Package | Version |
+|---------|---------|
+| cachem | 1.1.0 |
+| Package | Version |
+|---------|---------|
+| callr | 3.7.6 |
+| Package | Version |
+|---------|---------|
+| car | 3.1-3 |
+| Package | Version |
+|---------|---------|
+| carData | 3.0-5 |
+| Package | Version |
+|---------|---------|
+| Cardinal | 3.10.0 |
+| Package | Version |
+|---------|---------|
+| CardinalIO | 1.6.0 |
+| Package | Version |
+|---------|---------|
+| caret | 7.0-1 |
+| Package | Version |
+|---------|---------|
+| cellranger | 1.1.0 |
+| Package | Version |
+|---------|---------|
+| checkmate | 2.3.2 |
+| Package | Version |
+|---------|---------|
+| circlize | 0.4.16 |
+| Package | Version |
+|---------|---------|
+| class | 7.3-23 |
+| Package | Version |
+|---------|---------|
+| cli | 3.6.5 |
+| Package | Version |
+|---------|---------|
+| clipr | 0.8.0 |
+| Package | Version |
+|---------|---------|
+| clock | 0.7.3 |
+| Package | Version |
+|---------|---------|
+| clue | 0.3-66 |
+| Package | Version |
+|---------|---------|
+| cluster | 2.1.8.1 |
+| Package | Version |
+|---------|---------|
+| codetools | 0.2-20 |
+| Package | Version |
+|---------|---------|
+| colorspace | 2.1-1 |
+| Package | Version |
+|---------|---------|
+| compiler | 4.5.0 |
+| Package | Version |
+|---------|---------|
+| ComplexHeatmap | 2.24.1 |
+| Package | Version |
+|---------|---------|
+| conflicted | 1.2.0 |
+| Package | Version |
+|---------|---------|
+| corpcor | 1.6.10 |
+| Package | Version |
+|---------|---------|
+| corrplot | 0.95 |
+| Package | Version |
+|---------|---------|
+| cowplot | 1.2.0 |
+| Package | Version |
+|---------|---------|
+| cpp11 | 0.5.2 |
+| Package | Version |
+|---------|---------|
+| crayon | 1.5.3 |
+| Package | Version |
+|---------|---------|
+| crosstalk | 1.2.1 |
+| Package | Version |
+|---------|---------|
+| curl | 6.4.0 |
+| Package | Version |
+|---------|---------|
+| data.table | 1.17.8 |
+| Package | Version |
+|---------|---------|
+| datasets | 4.5.0 |
+| Package | Version |
+|---------|---------|
+| DBI | 1.2.3 |
+| Package | Version |
+|---------|---------|
+| dbplyr | 2.5.0 |
+| Package | Version |
+|---------|---------|
+| dendextend | 1.19.1 |
+| Package | Version |
+|---------|---------|
+| Deriv | 4.2.0 |
+| Package | Version |
+|---------|---------|
+| diagram | 1.6.5 |
+| Package | Version |
+|---------|---------|
+| digest | 0.6.37 |
+| Package | Version |
+|---------|---------|
+| doBy | 4.7.0 |
+| Package | Version |
+|---------|---------|
+| doParallel | 1.0.17 |
+| Package | Version |
+|---------|---------|
+| dplyr | 1.1.4 |
+| Package | Version |
+|---------|---------|
+| DT | 0.33 |
+| Package | Version |
+|---------|---------|
+| dtplyr | 1.3.1 |
+| Package | Version |
+|---------|---------|
+| DynDoc | 1.86.0 |
+| Package | Version |
+|---------|---------|
+| e1071 | 1.7-16 |
+| Package | Version |
+|---------|---------|
+| EBImage | 4.50.0 |
+| Package | Version |
+|---------|---------|
+| ellipse | 0.5.0 |
+| Package | Version |
+|---------|---------|
+| emmeans | 1.11.2 |
+| Package | Version |
+|---------|---------|
+| estimability | 1.5.1 |
+| Package | Version |
+|---------|---------|
+| evaluate | 1.0.4 |
+| Package | Version |
+|---------|---------|
+| factoextra | 1.0.7 |
+| Package | Version |
+|---------|---------|
+| FactoMineR | 2.12 |
+| Package | Version |
+|---------|---------|
+| fansi | 1.0.6 |
+| Package | Version |
+|---------|---------|
+| farver | 2.1.2 |
+| Package | Version |
+|---------|---------|
+| fastmap | 1.2.0 |
+| Package | Version |
+|---------|---------|
+| fdrtool | 1.2.18 |
+| Package | Version |
+|---------|---------|
+| fftwtools | 0.9-11 |
+| Package | Version |
+|---------|---------|
+| flashClust | 1.01-2 |
+| Package | Version |
+|---------|---------|
+| fontawesome | 0.5.3 |
+| Package | Version |
+|---------|---------|
+| forcats | 1.0.0 |
+| Package | Version |
+|---------|---------|
+| foreach | 1.5.2 |
+| Package | Version |
+|---------|---------|
+| foreign | 0.8-90 |
+| Package | Version |
+|---------|---------|
+| formatR | 1.14 |
+| Package | Version |
+|---------|---------|
+| Formula | 1.2-5 |
+| Package | Version |
+|---------|---------|
+| fs | 1.6.6 |
+| Package | Version |
+|---------|---------|
+| futile.logger | 1.4.3 |
+| Package | Version |
+|---------|---------|
+| futile.options | 1.0.1 |
+| Package | Version |
+|---------|---------|
+| future | 1.67.0 |
+| Package | Version |
+|---------|---------|
+| future.apply | 1.20.0 |
+| Package | Version |
+|---------|---------|
+| gargle | 1.5.2 |
+| Package | Version |
+|---------|---------|
+| generics | 0.1.4 |
+| Package | Version |
+|---------|---------|
+| GetoptLong | 1.0.5 |
+| Package | Version |
+|---------|---------|
+| ggplot2 | 3.5.2 |
+| Package | Version |
+|---------|---------|
+| ggpubr | 0.6.1 |
+| Package | Version |
+|---------|---------|
+| ggrepel | 0.9.6 |
+| Package | Version |
+|---------|---------|
+| ggsci | 3.2.0 |
+| Package | Version |
+|---------|---------|
+| ggsignif | 0.6.4 |
+| Package | Version |
+|---------|---------|
+| ggthemes | 5.1.0 |
+| Package | Version |
+|---------|---------|
+| glasso | 1.11 |
+| Package | Version |
+|---------|---------|
+| glmnet | 4.1-10 |
+| Package | Version |
+|---------|---------|
+| GlobalOptions | 0.1.2 |
+| Package | Version |
+|---------|---------|
+| globals | 0.18.0 |
+| Package | Version |
+|---------|---------|
+| glue | 1.8.0 |
+| Package | Version |
+|---------|---------|
+| googledrive | 2.1.1 |
+| Package | Version |
+|---------|---------|
+| googlesheets4 | 1.1.1 |
+| Package | Version |
+|---------|---------|
+| gower | 1.0.2 |
+| Package | Version |
+|---------|---------|
+| GPArotation | 2025.3-1 |
+| Package | Version |
+|---------|---------|
+| graphics | 4.5.0 |
+| Package | Version |
+|---------|---------|
+| grDevices | 4.5.0 |
+| Package | Version |
+|---------|---------|
+| grid | 4.5.0 |
+| Package | Version |
+|---------|---------|
+| gridExtra | 2.3 |
+| Package | Version |
+|---------|---------|
+| gsignal | 0.3-7 |
+| Package | Version |
+|---------|---------|
+| gtable | 0.3.6 |
+| Package | Version |
+|---------|---------|
+| gtools | 3.9.5 |
+| Package | Version |
+|---------|---------|
+| hardhat | 1.4.1 |
+| Package | Version |
+|---------|---------|
+| haven | 2.5.5 |
+| Package | Version |
+|---------|---------|
+| highr | 0.11 |
+| Package | Version |
+|---------|---------|
+| Hmisc | 5.2-3 |
+| Package | Version |
+|---------|---------|
+| hms | 1.1.3 |
+| Package | Version |
+|---------|---------|
+| htmlTable | 2.4.3 |
+| Package | Version |
+|---------|---------|
+| htmltools | 0.5.8.1 |
+| Package | Version |
+|---------|---------|
+| htmlwidgets | 1.6.4 |
+| Package | Version |
+|---------|---------|
+| httpuv | 1.6.16 |
+| Package | Version |
+|---------|---------|
+| httr | 1.4.7 |
+| Package | Version |
+|---------|---------|
+| ids | 1.0.1 |
+| Package | Version |
+|---------|---------|
+| igraph | 2.1.4 |
+| Package | Version |
+|---------|---------|
+| ipred | 0.9-15 |
+| Package | Version |
+|---------|---------|
+| IRanges | 2.42.0 |
+| Package | Version |
+|---------|---------|
+| irlba | 2.3.5.1 |
+| Package | Version |
+|---------|---------|
+| isoband | 0.2.7 |
+| Package | Version |
+|---------|---------|
+| iterators | 1.0.14 |
+| Package | Version |
+|---------|---------|
+| jpeg | 0.1-11 |
+| Package | Version |
+|---------|---------|
+| jquerylib | 0.1.4 |
+| Package | Version |
+|---------|---------|
+| jsonlite | 2.0.0 |
+| Package | Version |
+|---------|---------|
+| KernSmooth | 2.23-26 |
+| Package | Version |
+|---------|---------|
+| knitr | 1.50 |
+| Package | Version |
+|---------|---------|
+| labeling | 0.4.3 |
+| Package | Version |
+|---------|---------|
+| lambda.r | 1.2.4 |
+| Package | Version |
+|---------|---------|
+| later | 1.4.2 |
+| Package | Version |
+|---------|---------|
+| lattice | 0.22-7 |
+| Package | Version |
+|---------|---------|
+| lava | 1.8.1 |
+| Package | Version |
+|---------|---------|
+| lavaan | 0.6-19 |
+| Package | Version |
+|---------|---------|
+| lazyeval | 0.2.2 |
+| Package | Version |
+|---------|---------|
+| leaps | 3.2 |
+| Package | Version |
+|---------|---------|
+| lifecycle | 1.0.4 |
+| Package | Version |
+|---------|---------|
+| listenv | 0.9.1 |
+| Package | Version |
+|---------|---------|
+| lme4 | 1.1-37 |
+| Package | Version |
+|---------|---------|
+| locfit | 1.5-9.12 |
+| Package | Version |
+|---------|---------|
+| lubridate | 1.9.4 |
+| Package | Version |
+|---------|---------|
+| magrittr | 2.0.3 |
+| Package | Version |
+|---------|---------|
+| MALDIquant | 1.22.3 |
+| Package | Version |
+|---------|---------|
+| MASS | 7.3-65 |
+| Package | Version |
+|---------|---------|
+| Matrix | 1.7-3 |
+| Package | Version |
+|---------|---------|
+| MatrixModels | 0.5-4 |
+| Package | Version |
+|---------|---------|
+| matrixStats | 1.5.0 |
+| Package | Version |
+|---------|---------|
+| matter | 2.10.0 |
+| Package | Version |
+|---------|---------|
+| memoise | 2.0.1 |
+| Package | Version |
+|---------|---------|
+| methods | 4.5.0 |
+| Package | Version |
+|---------|---------|
+| Mfuzz | 2.68.0 |
+| Package | Version |
+|---------|---------|
+| mgcv | 1.9-3 |
+| Package | Version |
+|---------|---------|
+| microbenchmark | 1.5.0 |
+| Package | Version |
+|---------|---------|
+| mime | 0.13 |
+| Package | Version |
+|---------|---------|
+| minqa | 1.2.8 |
+| Package | Version |
+|---------|---------|
+| mixOmics | 6.32.0 |
+| Package | Version |
+|---------|---------|
+| mnormt | 2.1.1 |
+| Package | Version |
+|---------|---------|
+| ModelMetrics | 1.2.2.2 |
+| Package | Version |
+|---------|---------|
+| modelr | 0.1.11 |
+| Package | Version |
+|---------|---------|
+| mRMRe | 2.1.2.2 |
+| Package | Version |
+|---------|---------|
+| multcompView | 0.1-10 |
+| Package | Version |
+|---------|---------|
+| MultiClassROC | 0.1.0 |
+| Package | Version |
+|---------|---------|
+| mvtnorm | 1.3-3 |
+| Package | Version |
+|---------|---------|
+| nlme | 3.1-168 |
+| Package | Version |
+|---------|---------|
+| nloptr | 2.2.1 |
+| Package | Version |
+|---------|---------|
+| nnet | 7.3-20 |
+| Package | Version |
+|---------|---------|
+| numDeriv | 2016.8-1.1 |
+| Package | Version |
+|---------|---------|
+| ontologyIndex | 2.12 |
+| Package | Version |
+|---------|---------|
+| openssl | 2.3.3 |
+| Package | Version |
+|---------|---------|
+| openxlsx | 4.2.8 |
+| Package | Version |
+|---------|---------|
+| parallel | 4.5.0 |
+| Package | Version |
+|---------|---------|
+| parallelly | 1.45.1 |
+| Package | Version |
+|---------|---------|
+| pbapply | 1.7-4 |
+| Package | Version |
+|---------|---------|
+| pbivnorm | 0.6.0 |
+| Package | Version |
+|---------|---------|
+| pbkrtest | 0.5.5 |
+| Package | Version |
+|---------|---------|
+| pheatmap | 1.0.13 |
+| Package | Version |
+|---------|---------|
+| pillar | 1.11.0 |
+| Package | Version |
+|---------|---------|
+| pkgconfig | 2.0.3 |
+| Package | Version |
+|---------|---------|
+| pls | 2.8-5 |
+| Package | Version |
+|---------|---------|
+| plyr | 1.8.9 |
+| Package | Version |
+|---------|---------|
+| png | 0.1-8 |
+| Package | Version |
+|---------|---------|
+| polynom | 1.4-1 |
+| Package | Version |
+|---------|---------|
+| ppcor | 1.1 |
+| Package | Version |
+|---------|---------|
+| pracma | 2.4.4 |
+| Package | Version |
+|---------|---------|
+| prettyunits | 1.2.0 |
+| Package | Version |
+|---------|---------|
+| pROC | 1.19.0.1 |
+| Package | Version |
+|---------|---------|
+| processx | 3.8.6 |
+| Package | Version |
+|---------|---------|
+| prodlim | 2025.04.28 |
+| Package | Version |
+|---------|---------|
+| progress | 1.2.3 |
+| Package | Version |
+|---------|---------|
+| progressr | 0.15.1 |
+| Package | Version |
+|---------|---------|
+| promises | 1.3.3 |
+| Package | Version |
+|---------|---------|
+| ProtGenerics | 1.40.0 |
+| Package | Version |
+|---------|---------|
+| proxy | 0.4-27 |
+| Package | Version |
+|---------|---------|
+| ps | 1.9.1 |
+| Package | Version |
+|---------|---------|
+| psych | 2.5.6 |
+| Package | Version |
+|---------|---------|
+| purrr | 1.1.0 |
+| Package | Version |
+|---------|---------|
+| qgraph | 1.9.8 |
+| Package | Version |
+|---------|---------|
+| quadprog | 1.5-8 |
+| Package | Version |
+|---------|---------|
+| quantreg | 6.1 |
+| Package | Version |
+|---------|---------|
+| R6 | 2.6.1 |
+| Package | Version |
+|---------|---------|
+| ragg | 1.4.0 |
+| Package | Version |
+|---------|---------|
+| randomForest | 4.7-1.2 |
+| Package | Version |
+|---------|---------|
+| ranger | 0.17.0 |
+| Package | Version |
+|---------|---------|
+| rappdirs | 0.3.3 |
+| Package | Version |
+|---------|---------|
+| rARPACK | 0.11-0 |
+| Package | Version |
+|---------|---------|
+| rbibutils | 2.3 |
+| Package | Version |
+|---------|---------|
+| RColorBrewer | 1.1-3 |
+| Package | Version |
+|---------|---------|
+| Rcpp | 1.1.0 |
+| Package | Version |
+|---------|---------|
+| RcppEigen | 0.3.4.0.2 |
+| Package | Version |
+|---------|---------|
+| RCurl | 1.98-1.17 |
+| Package | Version |
+|---------|---------|
+| Rdpack | 2.6.4 |
+| Package | Version |
+|---------|---------|
+| readr | 2.1.5 |
+| Package | Version |
+|---------|---------|
+| readxl | 1.4.5 |
+| Package | Version |
+|---------|---------|
+| recipes | 1.3.1 |
+| Package | Version |
+|---------|---------|
+| reformulas | 0.4.1 |
+| Package | Version |
+|---------|---------|
+| rematch | 2.0.0 |
+| Package | Version |
+|---------|---------|
+| rematch2 | 2.1.2 |
+| Package | Version |
+|---------|---------|
+| reprex | 2.1.1 |
+| Package | Version |
+|---------|---------|
+| reshape2 | 1.4.4 |
+| Package | Version |
+|---------|---------|
+| rgl | 1.3.24 |
+| Package | Version |
+|---------|---------|
+| rjson | 0.2.23 |
+| Package | Version |
+|---------|---------|
+| rlang | 1.1.6 |
+| Package | Version |
+|---------|---------|
+| rmarkdown | 2.29 |
+| Package | Version |
+|---------|---------|
+| rpart | 4.1.24 |
+| Package | Version |
+|---------|---------|
+| RSpectra | 0.16-2 |
+| Package | Version |
+|---------|---------|
+| rstatix | 0.7.2 |
+| Package | Version |
+|---------|---------|
+| rstudioapi | 0.17.1 |
+| Package | Version |
+|---------|---------|
+| rvest | 1.0.4 |
+| Package | Version |
+|---------|---------|
+| S4Vectors | 0.46.0 |
+| Package | Version |
+|---------|---------|
+| sass | 0.4.10 |
+| Package | Version |
+|---------|---------|
+| scales | 1.4.0 |
+| Package | Version |
+|---------|---------|
+| scatterplot3d | 0.3-44 |
+| Package | Version |
+|---------|---------|
+| selectr | 0.4-2 |
+| Package | Version |
+|---------|---------|
+| shape | 1.4.6.1 |
+| Package | Version |
+|---------|---------|
+| snow | 0.4-4 |
+| Package | Version |
+|---------|---------|
+| SparseM | 1.84-2 |
+| Package | Version |
+|---------|---------|
+| sparsevctrs | 0.3.4 |
+| Package | Version |
+|---------|---------|
+| spatial | 7.3-18 |
+| Package | Version |
+|---------|---------|
+| splines | 4.5.0 |
+| Package | Version |
+|---------|---------|
+| SQUAREM | 2021.1 |
+| Package | Version |
+|---------|---------|
+| stats | 4.5.0 |
+| Package | Version |
+|---------|---------|
+| stats4 | 4.5.0 |
+| Package | Version |
+|---------|---------|
+| stringi | 1.8.7 |
+| Package | Version |
+|---------|---------|
+| stringr | 1.5.1 |
+| Package | Version |
+|---------|---------|
+| survival | 3.8-3 |
+| Package | Version |
+|---------|---------|
+| sys | 3.4.3 |
+| Package | Version |
+|---------|---------|
+| systemfonts | 1.2.3 |
+| Package | Version |
+|---------|---------|
+| tcltk | 4.5.0 |
+| Package | Version |
+|---------|---------|
+| textshaping | 1.0.1 |
+| Package | Version |
+|---------|---------|
+| tibble | 3.3.0 |
+| Package | Version |
+|---------|---------|
+| tidyr | 1.3.1 |
+| Package | Version |
+|---------|---------|
+| tidyselect | 1.2.1 |
+| Package | Version |
+|---------|---------|
+| tidyverse | 2.0.0 |
+| Package | Version |
+|---------|---------|
+| tiff | 0.1-12 |
+| Package | Version |
+|---------|---------|
+| timechange | 0.3.0 |
+| Package | Version |
+|---------|---------|
+| timeDate | 4041.110 |
+| Package | Version |
+|---------|---------|
+| tinytex | 0.57 |
+| Package | Version |
+|---------|---------|
+| tkWidgets | 1.86.0 |
+| Package | Version |
+|---------|---------|
+| tools | 4.5.0 |
+| Package | Version |
+|---------|---------|
+| translations | 4.5.0 |
+| Package | Version |
+|---------|---------|
+| tzdb | 0.5.0 |
+| Package | Version |
+|---------|---------|
+| utf8 | 1.2.6 |
+| Package | Version |
+|---------|---------|
+| utils | 4.5.0 |
+| Package | Version |
+|---------|---------|
+| uuid | 1.2-1 |
+| Package | Version |
+|---------|---------|
+| vctrs | 0.6.5 |
+| Package | Version |
+|---------|---------|
+| vip | 0.4.1 |
+| Package | Version |
+|---------|---------|
+| viridis | 0.6.5 |
+| Package | Version |
+|---------|---------|
+| viridisLite | 0.4.2 |
+| Package | Version |
+|---------|---------|
+| vroom | 1.6.5 |
+| Package | Version |
+|---------|---------|
+| widgetTools | 1.86.0 |
+| Package | Version |
+|---------|---------|
+| withr | 3.0.2 |
+| Package | Version |
+|---------|---------|
+| writexl | 1.5.4 |
+| Package | Version |
+|---------|---------|
+| xfun | 0.52 |
+| Package | Version |
+|---------|---------|
+| xml2 | 1.3.8 |
+| Package | Version |
+|---------|---------|
+| yaml | 2.3.10 |
+| Package | Version |
+|---------|---------|
+| yardstick | 1.3.2 |
+| Package | Version |
+|---------|---------|
+| zip | 2.3.3 |

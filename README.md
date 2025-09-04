@@ -1,2 +1,6 @@
+High-resolution spatiotemporal mapping of cerebral metabolism during middle-cerebral-artery 
+progression This repository contains all R scripts for generating data and figures associated with the manuscript:
+
+
 All analyses in this repository were performed exclusively in R (v4.5.0); no other languages or external workflow managers are required.
-如果你注意到我们的代谢物名称为基因名称，请忽略，这是由于代码迁移导致，不影响代码可用性
+If you notice that our metabolite names appear as gene names, please disregard this—it is due to a code migration issue and does not affect the usability of the code.
